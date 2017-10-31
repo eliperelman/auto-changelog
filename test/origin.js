@@ -1,7 +1,16 @@
-import { describe, it } from 'mocha'
-import { expect } from 'chai'
+/* eslint-disable no-unused-expressions */
 
-import { fetchOrigin, __Rewire__, __ResetDependency__ } from '../src/origin'
+import { describe, it } from 'mocha'
+import chai, { expect } from 'chai'
+import chaiAsPromised from 'chai-as-promised'
+
+import {
+  fetchOrigin,
+  __Rewire__ as mock,
+  __ResetDependency__ as unmock
+} from '../src/origin'
+
+chai.use(chaiAsPromised)
 
 const origin = {
   github: {
@@ -52,11 +61,15 @@ const TEST_DATA = [
 describe('fetchOrigin', () => {
   for (let test of TEST_DATA) {
     it(`parses ${test.remote}`, async () => {
-      __Rewire__('cmd', () => test.remote)
-
+      mock('cmd', () => test.remote)
       expect(await fetchOrigin('origin')).to.include(test.expected)
-
-      __ResetDependency__('cmd')
+      unmock('cmd')
     })
   }
+
+  it('throws an error', () => {
+    mock('cmd', () => '')
+    expect(fetchOrigin('origin')).to.be.rejected
+    unmock('cmd')
+  })
 })

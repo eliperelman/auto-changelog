@@ -874,6 +874,12 @@ center-align@^0.1.1:
     align-text "^0.1.3"
     lazy-cache "^1.0.3"
 
+chai-as-promised@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/chai-as-promised/-/chai-as-promised-7.1.1.tgz#08645d825deb8696ee61725dbf590c012eb00ca0"
+  dependencies:
+    check-error "^1.0.2"
+
 chai@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/chai/-/chai-4.1.2.tgz#0f64584ba642f0f2ace2806279f4f06ca23ad73c"
@@ -903,7 +909,7 @@ chalk@^2.0.0:
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
 
-check-error@^1.0.1:
+check-error@^1.0.1, check-error@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
 
@@ -2502,9 +2508,9 @@ p-locate@^2.0.0:
   dependencies:
     p-limit "^1.1.0"
 
-parse-github-url@^1.0.0:
+parse-github-url@cookpete/parse-github-url:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/parse-github-url/-/parse-github-url-1.0.0.tgz#d0c50b592d5a252c61a8540a421dfe8e571cf45a"
+  resolved "https://codeload.github.com/cookpete/parse-github-url/tar.gz/12a5fe452403b0140c79c7dd33a4389e5d14ca5d"
 
 parse-glob@^3.0.4:
   version "3.0.4"
